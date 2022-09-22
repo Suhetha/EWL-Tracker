@@ -1,0 +1,35 @@
+<html>
+<head>
+<title>Log in</title>
+<link rel="stylesheet" href="log.css">
+</head>
+<body>
+<h1><center>Tracker</center></h1>
+<h2><center>Log In</center></h2>
+<form name="myForm"action="/action_page.php"
+onsubmit="return validationForm()"
+method="post">
+<table align="center" cellpadding="11">
+ <tr><td>
+  Email</td>
+  <td><input type="text" name="mail" id="mail" min="5" max="25"/></td></tr>
+  <tr><td>Password</td><td>
+  <input type="password" name="password" id="password"
+         required min="1" max="8"/> <br><br>
+	<center>	 <input type="Log in" value="Log In"></center>
+<script>
+
+window.addEventListener("DOMContentLoaded", function(){
+  var password = document.getElementById("password");
+  password.addEventListener("input", function(){
+    if (password.validity.tooLong || password.validity.tooShort || password.validity.valueMissing) {
+      password.setCustomValidity("Password must be of 8 characters.");
+      password.reportValidity();
+    } else {
+      password.setCustomValidity("");
+    }
+  });
+   </script>
+   </form>
+</body>
+</html>
